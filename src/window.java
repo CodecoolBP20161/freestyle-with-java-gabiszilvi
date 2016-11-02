@@ -5,11 +5,10 @@
 
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 public class window extends JFrame{
 
-    private static void window(){
+    private static void drawWindow(){
         JFrame frame = new JFrame("Window");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JLabel emptyLabel = new JLabel("");
@@ -17,13 +16,13 @@ public class window extends JFrame{
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
         frame.pack();
         frame.setVisible(true);
-    };
+    }
 
     public static void main(String args[]){
         javax.swing.SwingUtilities.invokeLater(new Runnable(){
             public void run() {
-                window();
+                drawWindow();
             }
         });
-    };
+    }
 }
