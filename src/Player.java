@@ -1,18 +1,19 @@
 import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 
 
-public class GoalKeeper extends Sprite implements Commons{
+public class Player extends Sprite implements Commons{
 
-    private final int START_Y = 200;
-    private final int START_X = 480;
+    private final int START_Y = 530;
+    private final int START_X = 200;
 
-    private final String keeper = "goalkeeper.png";
+    private final String player = "player.png";
     private int width;
 
-    public GoalKeeper() {
+    public Player() {
 
-        ImageIcon ii = new ImageIcon(this.getClass().getResource(keeper));
+        ImageIcon ii = new ImageIcon(this.getClass().getResource(player));
 
         width = ii.getImage().getWidth(null);
 
@@ -32,12 +33,12 @@ public class GoalKeeper extends Sprite implements Commons{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT)
+        if (key == KeyEvent.VK_A)
         {
             dx = -4;
         }
 
-        if (key == KeyEvent.VK_RIGHT)
+        if (key == KeyEvent.VK_D)
         {
             dx = 4;
         }
@@ -46,12 +47,12 @@ public class GoalKeeper extends Sprite implements Commons{
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT)
+        if (key == KeyEvent.VK_A)
         {
             dx = 0;
         }
 
-        if (key == KeyEvent.VK_RIGHT)
+        if (key == KeyEvent.VK_D)
         {
             dx = 0;
         }
