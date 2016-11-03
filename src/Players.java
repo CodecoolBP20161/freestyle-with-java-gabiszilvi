@@ -6,32 +6,25 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class players {
+public class Players {
 
-    public static String input() {
+    public int input() {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String valami = new String();
+        int input = 0;
         try {
-            valami = br.readLine();
+            input = Integer.parseInt(br.readLine());
         }
         catch(IOException e){
             e.printStackTrace();
         }
 
-
-        /*try{
-            int i = Integer.parseInt(br.readLine());
-        }
-        catch(NumberFormatException nfe){
-            System.err.println("Invalid Format!");
-        }*/
-        return valami;
+        return input;
     }
 
     public static void main(String args[]){
-        String input = input();
-        System.out.println(input);
+
+
 
     }
 

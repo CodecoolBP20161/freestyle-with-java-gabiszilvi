@@ -23,13 +23,13 @@ public class Window extends JFrame {
         }
 
 
-        this.setSize(image.getWidth(),image.getHeight());
+        /*this.setSize(image.getWidth(),image.getHeight());
         this.setLayout(new FlowLayout());
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Fifa Over 9000");
-        this.setVisible(true);
+        this.setVisible(true);*/
 
     }
 
