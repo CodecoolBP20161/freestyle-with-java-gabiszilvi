@@ -15,6 +15,7 @@ public class Board extends JPanel implements Runnable, Commons {
     private Player player;
     private Ball ball;
     private SoccerDoor soccerdoor;
+    private backGround background;
 
     private boolean ingame = true;
 
@@ -44,6 +45,7 @@ public class Board extends JPanel implements Runnable, Commons {
         player = new Player();
         ball = new Ball();
         soccerdoor = new SoccerDoor(280, 120);
+        background = new backGround();
 
         if (animator == null || !ingame) {
             animator = new Thread(this);
@@ -57,6 +59,12 @@ public class Board extends JPanel implements Runnable, Commons {
             g.drawImage(goalkeeper.getImage(), goalkeeper.getX(), goalkeeper.getY(), this);
         }
 
+    }
+
+    public void drawBG(Graphics g) {
+        if (background.isVisible()) {
+            g.drawImage(background.getImage(), background.getX(), background.getY(), this);
+        }
     }
 
     public void drawSoccerDoor(Graphics g){
@@ -89,6 +97,7 @@ public class Board extends JPanel implements Runnable, Commons {
 
         if (ingame) {
             drawSoccerDoor(g);
+            drawBG(g);
             drawGoalKeeper(g);
             drawPlayer(g);
             drawBall(g);
@@ -168,12 +177,12 @@ public class Board extends JPanel implements Runnable, Commons {
             goalkeeper.keyPressed(e);
 
 
-            /*if (ingame) {
-                if (e.isAltDown()) {
+            if (ingame) {
+                if (e.isShiftDown()) {
                    if (!ball.isVisible())
-                        ball = new ball(x, y);
+                        ball = new Ball(x, y);
                 }
-            }*/
+            }
         }
     }
 }
