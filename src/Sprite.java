@@ -6,7 +6,6 @@ public class Sprite {
     private Image image;
     protected int x;
     protected int y;
-    protected boolean dying;
     protected int dx;
 
     public Sprite() {
@@ -21,9 +20,9 @@ public class Sprite {
         return visible;
     }
 
-    protected void setVisible(boolean visible) {
-        this.visible = visible;
-    }
+    //protected void setVisible(boolean visible) {
+        //this.visible = visible;
+   // }
 
     public void setImage(Image image) {
         this.image = image;

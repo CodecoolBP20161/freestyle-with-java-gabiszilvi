@@ -1,10 +1,6 @@
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
-
-
-import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 
@@ -14,11 +10,9 @@ public class Board extends JPanel implements Runnable, Commons {
     private GoalKeeper goalkeeper;
     private Player player;
     private Ball ball;
-    private SoccerDoor soccerdoor;
     private BackGround background;
 
     private boolean ingame = true;
-
 
     private Thread animator;
 
@@ -28,7 +22,6 @@ public class Board extends JPanel implements Runnable, Commons {
         addKeyListener(new TAdapter());
         setFocusable(true);
         d = new Dimension(BOARD_WIDTH, BOARD_HEIGTH);
-        //setBackground(Color.black);
 
         gameInit();
         setDoubleBuffered(true);
@@ -44,7 +37,6 @@ public class Board extends JPanel implements Runnable, Commons {
         goalkeeper = new GoalKeeper();
         player = new Player();
         ball = new Ball();
-        soccerdoor = new SoccerDoor(280, 120);
         background = new BackGround();
 
         if (animator == null || !ingame) {
@@ -53,12 +45,12 @@ public class Board extends JPanel implements Runnable, Commons {
         }
     }
 
+    // drawing methods
     public void drawGoalKeeper(Graphics g)
     {
         if (goalkeeper.isVisible()) {
             g.drawImage(goalkeeper.getImage(), goalkeeper.getX(), goalkeeper.getY(), this);
         }
-
     }
 
     public void drawBG(Graphics g) {
@@ -67,19 +59,12 @@ public class Board extends JPanel implements Runnable, Commons {
         }
     }
 
-    public void drawSoccerDoor(Graphics g){
-        if (soccerdoor.isVisible()){
-            g.drawImage(soccerdoor.getImage(), soccerdoor.getX(), soccerdoor.getY(), this);
-        }
-    }
 
     public void drawPlayer(Graphics g) {
 
         if (player.isVisible()) {
             g.drawImage(player.getImage(), player.getX(), player.getY(), this);
         }
-
-
     }
 
     public void drawBall(Graphics g) {
@@ -92,11 +77,7 @@ public class Board extends JPanel implements Runnable, Commons {
     {
         super.paint(g);
 
-        //g.setColor(Color.black);
-        //g.fillRect(0, 0, d.width, d.height);
-
         if (ingame) {
-            drawSoccerDoor(g);
             drawBG(g);
             drawGoalKeeper(g);
             drawPlayer(g);
@@ -111,9 +92,7 @@ public class Board extends JPanel implements Runnable, Commons {
 
     private void animationCycle()  {
 
-
         // player
-
         player.act();
 
         // ball
@@ -130,10 +109,7 @@ public class Board extends JPanel implements Runnable, Commons {
         }
 
         // goalKeeper
-
         goalkeeper.act();
-
-
     }
 
     public void run() {
@@ -175,7 +151,6 @@ public class Board extends JPanel implements Runnable, Commons {
             int y = player.getY();
 
             goalkeeper.keyPressed(e);
-
 
             if (ingame) {
                 if (e.isShiftDown()) {

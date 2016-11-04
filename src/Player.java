@@ -1,10 +1,10 @@
 import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 
 
 public class Player extends Sprite implements Commons{
 
+    // initial coordinates
     private final int START_Y = 550;
     private final int START_X = 200;
 
@@ -22,6 +22,7 @@ public class Player extends Sprite implements Commons{
         setY(START_Y);
     }
 
+    // give the position
     public void act() {
         x += dx;
         if (x <= 2)
@@ -30,6 +31,7 @@ public class Player extends Sprite implements Commons{
             x = BOARD_WIDTH - 2*width;
     }
 
+    // key pressed event
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 

@@ -1,8 +1,5 @@
 import javax.swing.*;
 
-/**
- * Created by shevah on 04/11/16.
- */
 public class BackGround extends Sprite implements Commons {
 
     private final int START_Y = 0;
