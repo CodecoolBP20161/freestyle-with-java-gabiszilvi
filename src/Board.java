@@ -1,17 +1,10 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.io.File;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 
@@ -23,12 +16,8 @@ public class Board extends JPanel implements Runnable, Commons {
     private Ball ball;
     private SoccerDoor soccerdoor;
 
-    private int goalkeeperX = 150;
-    private int goalkeeperY = 5;
-    private int direction = -1;
-
     private boolean ingame = true;
-    private String message = "Game Over";
+
 
     private Thread animator;
 
@@ -38,7 +27,7 @@ public class Board extends JPanel implements Runnable, Commons {
         addKeyListener(new TAdapter());
         setFocusable(true);
         d = new Dimension(BOARD_WIDTH, BOARD_HEIGTH);
-        setBackground(Color.black);
+        //setBackground(Color.black);
 
         gameInit();
         setDoubleBuffered(true);
@@ -95,9 +84,8 @@ public class Board extends JPanel implements Runnable, Commons {
     {
         super.paint(g);
 
-        g.setColor(Color.black);
-        g.fillRect(0, 0, d.width, d.height);
-        g.setColor(Color.green);
+        //g.setColor(Color.black);
+        //g.fillRect(0, 0, d.width, d.height);
 
         if (ingame) {
             drawSoccerDoor(g);
@@ -111,27 +99,6 @@ public class Board extends JPanel implements Runnable, Commons {
         g.dispose();
     }
 
-    public void gameOver()
-    {
-
-        Graphics g = this.getGraphics();
-
-        g.setColor(Color.black);
-        g.fillRect(0, 0, BOARD_WIDTH, BOARD_HEIGTH);
-
-        g.setColor(new Color(0, 32, 48));
-        g.fillRect(50, BOARD_WIDTH/2 - 30, BOARD_WIDTH-100, 50);
-        g.setColor(Color.white);
-        g.drawRect(50, BOARD_WIDTH/2 - 30, BOARD_WIDTH-100, 50);
-
-        Font small = new Font("Helvetica", Font.BOLD, 14);
-        FontMetrics metr = this.getFontMetrics(small);
-
-        g.setColor(Color.white);
-        g.setFont(small);
-        g.drawString(message, (BOARD_WIDTH - metr.stringWidth(message))/2,
-                BOARD_WIDTH/2);
-    }
 
     private void animationCycle()  {
 
@@ -182,7 +149,6 @@ public class Board extends JPanel implements Runnable, Commons {
             }
             beforeTime = System.currentTimeMillis();
         }
-        gameOver();
     }
 
     private class TAdapter extends KeyAdapter {
@@ -202,12 +168,12 @@ public class Board extends JPanel implements Runnable, Commons {
             goalkeeper.keyPressed(e);
 
 
-            if (ingame) {
+            /*if (ingame) {
                 if (e.isAltDown()) {
                    if (!ball.isVisible())
                         ball = new ball(x, y);
                 }
-            }
+            }*/
         }
     }
 }

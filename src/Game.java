@@ -1,6 +1,9 @@
 import javax.swing.JFrame;
+import java.awt.image.BufferedImage;
 
 public class Game extends JFrame implements Commons {
+
+    private BufferedImage image;
 
     public Game()
     {
