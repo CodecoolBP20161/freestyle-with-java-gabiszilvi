@@ -123,7 +123,7 @@ public class Board extends JPanel implements Runnable, Commons {
 
 
             int y = ball.getY();
-            y -= 4;
+            y -= 6;
             if (y < 0)
                 ball.die();
             else ball.setY(y);
@@ -154,7 +154,7 @@ public class Board extends JPanel implements Runnable, Commons {
             try {
                 Thread.sleep(sleep);
             } catch (InterruptedException e) {
-                System.out.println("interrupted");
+                System.out.println("Interrupted");
             }
             beforeTime = System.currentTimeMillis();
         }
