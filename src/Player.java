@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 
 public class Player extends Sprite implements Commons{
 
-    private final int START_Y = 530;
+    private final int START_Y = 550;
     private final int START_X = 200;
 
     private final String player = "player.png";
@@ -33,12 +33,12 @@ public class Player extends Sprite implements Commons{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_A)
+        if (key == KeyEvent.VK_LEFT)
         {
             dx = -4;
         }
 
-        if (key == KeyEvent.VK_D)
+        if (key == KeyEvent.VK_RIGHT)
         {
             dx = 4;
         }
@@ -47,12 +47,12 @@ public class Player extends Sprite implements Commons{
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_A)
+        if (key == KeyEvent.VK_LEFT)
         {
             dx = 0;
         }
 
-        if (key == KeyEvent.VK_D)
+        if (key == KeyEvent.VK_RIGHT)
         {
             dx = 0;
         }

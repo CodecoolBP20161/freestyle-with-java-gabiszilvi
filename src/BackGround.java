@@ -3,15 +3,15 @@ import javax.swing.*;
 /**
  * Created by shevah on 04/11/16.
  */
-public class backGround extends Sprite implements Commons {
+public class BackGround extends Sprite implements Commons {
 
     private final int START_Y = 0;
     private final int START_X = 0;
 
-    private final String bg = "bg.png";
+    private final String bg = "bg2.png";
     private int width;
 
-    public backGround() {
+    public BackGround() {
 
         ImageIcon ii = new ImageIcon(this.getClass().getResource(bg));
 

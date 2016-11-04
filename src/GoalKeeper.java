@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 
 public class GoalKeeper extends Sprite implements Commons{
 
-    private final int START_Y = 200;
+    private final int START_Y = 140;
     private final int START_X = 480;
 
     private final String keeper = "goalkeeper.png";
@@ -32,12 +32,12 @@ public class GoalKeeper extends Sprite implements Commons{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT)
+        if (key == KeyEvent.VK_A)
         {
             dx = -4;
         }
 
-        if (key == KeyEvent.VK_RIGHT)
+        if (key == KeyEvent.VK_D)
         {
             dx = 4;
         }
@@ -46,12 +46,12 @@ public class GoalKeeper extends Sprite implements Commons{
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_LEFT)
+        if (key == KeyEvent.VK_A)
         {
             dx = 0;
         }
 
-        if (key == KeyEvent.VK_RIGHT)
+        if (key == KeyEvent.VK_D)
         {
             dx = 0;
         }

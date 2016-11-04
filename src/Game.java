@@ -8,7 +8,7 @@ public class Game extends JFrame implements Commons {
     public Game()
     {
         add(new Board());
-        setTitle("Fifa Over 9000");
+        setTitle("Sergio Ramos Penalty Simulator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(BOARD_WIDTH, BOARD_HEIGTH);
         setLocationRelativeTo(null);

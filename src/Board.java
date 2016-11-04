@@ -15,7 +15,7 @@ public class Board extends JPanel implements Runnable, Commons {
     private Player player;
     private Ball ball;
     private SoccerDoor soccerdoor;
-    private backGround background;
+    private BackGround background;
 
     private boolean ingame = true;
 
@@ -45,7 +45,7 @@ public class Board extends JPanel implements Runnable, Commons {
         player = new Player();
         ball = new Ball();
         soccerdoor = new SoccerDoor(280, 120);
-        background = new backGround();
+        background = new BackGround();
 
         if (animator == null || !ingame) {
             animator = new Thread(this);
